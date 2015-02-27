@@ -19,7 +19,12 @@ angular.module('gpgadminFrontEndApp')
     $scope.data.userName = 'mpatercz';
     
     function submit() {
-        $http.post('http://svcgpg-hackfest.itos.redhat.com/upload/' + $scope.data.userName, {pubkey: $scope.data.pubKey});	
+        $http.post('http://svcgpg-hackfest.itos.redhat.com/upload/' + $scope.data.userName, {pubkey: $scope.data.pubKey})
+	        .success(function() {
+	            $scope.success = true;
+	        }).error(function() {
+	        	$scope.error = true;
+	        });
     }
     
     $scope.submitFile = function(){

@@ -22,6 +22,17 @@
 				class="input-group-addon btn btn-default fileinput-exists"
 				data-dismiss="fileinput">Remove</a>
 		</div>
+		
+		<div ng-show="success" class="alert alert-success alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		  <strong>Success!</strong> Your public key is successfully saved in LDAP.
+		</div>
+		
+		<div ng-show="error" class="alert alert-danger alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		  <strong>Error!</strong> Your public key could not be saved in LDAP.
+		</div>
+		
 		<button type="button" class="btn btn-default" ng-click="submitFile()">Submit</button>
 	</div>
 </div>
@@ -35,6 +46,17 @@
 			<label for="comment">GPG key:</label>
 			<textarea class="form-control" rows="5" id="gpg-public-key"></textarea>
 		</div>
+		
+		<div ng-show="success" class="alert alert-success alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		  <strong>Success!</strong> Your public key is successfully saved in LDAP.
+		</div>
+		
+		<div ng-show="error" class="alert alert-danger alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		  <strong>Error!</strong> Your public key could not be saved in LDAP.
+		</div>
+		
 		<button type="button" class="btn btn-default" ng-click="submitTextarea()">Submit</button>
 	</div>
 </div>
