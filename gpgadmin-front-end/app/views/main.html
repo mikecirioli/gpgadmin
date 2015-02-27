@@ -1,4 +1,10 @@
-<div class="panel panel-primary">
+<div class="jumbotron">
+  <h1>Don't have a key?</h1>
+  <p>Learn how to generate one...
+  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+</div>
+
+<div class="panel panel-primary" ng-controller="KeyuploadCtrl">
 	<div class="panel-heading">
 		<h3 class="panel-title">Upload GPG key</h3>
 	</div>
@@ -12,11 +18,11 @@
 			<span class="input-group-addon btn btn-default btn-file"><span
 				class="fileinput-new">Select file</span><span
 				class="fileinput-exists">Change</span><input type="file"
-				name="gpgPubKey"></span> <a href="#"
+				name="gpgPubKey" id="gpg-key-file"></span> <a href="#"
 				class="input-group-addon btn btn-default fileinput-exists"
 				data-dismiss="fileinput">Remove</a>
 		</div>
-		<button type="button" class="btn btn-default">Submit</button>
+		<button type="button" class="btn btn-default" ng-click="add()">Submit</button>
 	</div>
 </div>
 
