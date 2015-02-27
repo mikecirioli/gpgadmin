@@ -15,25 +15,29 @@ angular.module('gpgadminFrontEndApp')
       'Karma'
     ];
     
-    $scope.add = function(){
+    $scope.data = {};
+    $scope.data.userName = 'mpatercz';
+    
+    function submit() {
+        $http.post('http://svcgpg-hackfest.itos.redhat.com/upload/' + $scope.data.userName, {pubkey: $scope.data.pubKey});	
+    }
+    
+    $scope.submitFile = function(){
       var file = document.getElementById('gpg-key-file').files[0];
       var reader = new FileReader();
       
       reader.onloadend = function(e){
-        $scope.data = e.target.result;
-        $http.post('http://svcgpg-hackfest.itos.redhat.com/upload', {pubkey: $scope.data}).
-	        success(function(data, status, headers, config) {
-	        	
-	          // this callback will be called asynchronously
-	          // when the response is available
-	        }).
-	        error(function(data, status, headers, config) {
-	          // called asynchronously if an error occurs
-	          // or server returns response with an error status.
-	        });
+        $scope.data.pubKey = e.target.result;
+        submit();
       };
       
       reader.readAsBinaryString(file);
     };
+    
+    $scope.submitTextarea = function(){
+        var key = document.getElementById('gpg-public-key').value;
+        $scope.data.pubKey = key;
+        submit();
+      };
 
   });

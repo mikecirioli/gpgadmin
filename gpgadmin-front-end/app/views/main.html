@@ -22,11 +22,11 @@
 				class="input-group-addon btn btn-default fileinput-exists"
 				data-dismiss="fileinput">Remove</a>
 		</div>
-		<button type="button" class="btn btn-default" ng-click="add()">Submit</button>
+		<button type="button" class="btn btn-default" ng-click="submitFile()">Submit</button>
 	</div>
 </div>
 
-<div class="panel panel-default">
+<div class="panel panel-default" ng-controller="KeyuploadCtrl">
 	<div class="panel-heading">
 		<h3 class="panel-title">Paste GPG key</h3>
 	</div>
@@ -35,7 +35,7 @@
 			<label for="comment">GPG key:</label>
 			<textarea class="form-control" rows="5" id="gpg-public-key"></textarea>
 		</div>
-		<button type="button" class="btn btn-default">Submit</button>
+		<button type="button" class="btn btn-default" ng-click="submitTextarea()">Submit</button>
 	</div>
 </div>
 
